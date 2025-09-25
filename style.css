@@ -168,11 +168,23 @@ body {
     outline-style: solid;
     outline-width: 1px;
     outline-offset: -4px;
+    position: relative;
 }
 
 .list li:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #fafafa;
+}
+
+.list li:hover .dot::after{
+    content: '!click list';
+    font-size: 10px;
+    position: absolute;
+    font-weight: 600;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: #ffcc00;
 }
 
 .list-btn-box {
