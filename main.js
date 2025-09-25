@@ -3,10 +3,11 @@ const elInput = elForm.querySelector('.form-input');
 const elList = document.querySelector('.list');
 const countBox = document.querySelector('.count-box');
 
-function createEl(tag, className, text, attrs = {}) {
+function createEl(tag, className, text, attrs = {}, id) {
     const el = document.createElement(tag);
     if (className) el.className = className;
     if (text) el.textContent = text;
+    if (id) el.id = id
     Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
     return el;
 }
@@ -117,7 +118,7 @@ elList.addEventListener('click', async (e) => {
         const h3 = li.querySelector('h3');
         const oldTitle = h3.textContent;
 
-        const input = createEl('input', 'edit-input', null, { type: 'text', value: oldTitle });
+        const input = createEl('input', 'edit-input', null, { type: 'text', value: oldTitle }, id);
         const saveBtn = createEl('button', 'save-btn', 'Save', { 'data-id': id });
 
         h3.replaceWith(input);
